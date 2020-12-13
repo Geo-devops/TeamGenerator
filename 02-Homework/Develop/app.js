@@ -19,8 +19,39 @@ function promptUser(answer) {
             message: "What is this role?",
             choices: ["Intern", "Manager", "Engineer"]
         },
-    ]).then(function (engineerRole) {
-        var newEngineer = new Engineer (engineerRole.name.engineer)
+    ]).then(function (emp) {
+        console.log(role)
+
+        if (emp.role === "Engineer") {
+            inquirer.prompt([
+                {
+                    name: "name",
+                    message: "What is your name?",
+                    type: "input"
+                },
+                {
+                    name: "email",
+                    type: "input",
+                    message: "What is your email"
+                },
+                {
+                    name: "gibhub",
+                    type: "input",
+                    message: "what is your github username?"
+                }
+                
+            ]).then(function (engineeEmp)
+                {
+                    var newEngineer = new Engineer (engineerRole.email, engineerRole.name, newID, engineerRole.github);
+                    newID = newID++
+                    console.log(newEngineer);
+
+                    teamArray.push(newEngineer);
+                }
+            )
+        
+
+        
     })
 }
 // Write code to use inquirer to gather information about the development team members,
